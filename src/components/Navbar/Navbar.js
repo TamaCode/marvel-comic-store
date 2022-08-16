@@ -1,6 +1,8 @@
 import marvel_comics_logo from './marvel_logo.jpeg';
 import './Navbar.css';
 import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faStore, faCartShopping, faMobileScreen } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
   return (
@@ -10,10 +12,10 @@ const Navbar = () => {
       </div>
       <nav>
         <ul>
-          <li><a href="#"><Button variant='danger'>INIT</Button></a></li>
-          <li><a href="#"><Button variant='danger'>STORE</Button></a></li>
-          <li><a href="#"><Button variant='danger'>CART</Button></a></li>
-          <li><a href="#"><Button variant='danger'>CONTACT</Button></a></li>
+          <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faHome} /></span>INIT</Button></a></li>
+          <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faStore} /></span>STORE</Button></a></li>
+          <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faCartShopping} /></span>CART</Button></a></li>
+          <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faMobileScreen} /></span>CONTACT</Button></a></li>
         </ul>
       </nav>
     </div>
