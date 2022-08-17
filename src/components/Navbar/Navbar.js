@@ -7,9 +7,9 @@ import { faHome, faStore, faCartShopping, faMobileScreen } from '@fortawesome/fr
 const Navbar = () => {
   return (
     <div className='navbar-box'>
-      <div className='img-box'>
+      {/* <div className='img-box'>
         <img src={marvel_comics_logo} alt="Marvel Comics Logo" />
-      </div>
+      </div> */}
       <nav>
         <ul>
           <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faHome} /></span>INIT</Button></a></li>
