@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar.js';
+import Title from './components/Title/Title.js';
 
 function App() {
   return (
@@ -7,6 +8,9 @@ function App() {
       <header className="App-header">
         <Navbar />
       </header>
+      <body>
+        <Title title='Explore Our Comics Store !'></Title>
+      </body>
     </div>
   );
 }

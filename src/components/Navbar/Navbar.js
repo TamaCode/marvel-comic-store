@@ -1,4 +1,4 @@
-import marvel_comics_logo from './marvel_logo.jpeg';
+// import marvel_comics_logo from './marvel_logo.jpeg';
 import './Navbar.css';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
