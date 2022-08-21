@@ -9,7 +9,7 @@ function App() {
         <Navbar />
       </header>
       <body>
-        <Title title='Explore Our Comics Store !'></Title>
+        <Title title='Explore Our Comics Store !' />
       </body>
     </div>
   );
