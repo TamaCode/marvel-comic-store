@@ -4,6 +4,7 @@ import './Hero_Card.css';
 
 const Hero_Card = ({ heroName }) => {
   const [heroImageURL, setHeroImageURL] = useState('');
+  const cleanHeroName = heroName => heroName.split('(Ultimate)')[0];
 
   useEffect(() => {
     getHeroData(heroName).then((heroData) => {
@@ -19,7 +20,7 @@ const Hero_Card = ({ heroName }) => {
       <div className='hero-img-box'>
         <img src={heroImageURL} alt="Hero Image" />
       </div>
-      <h4>{heroName}</h4>
+      <h4>{cleanHeroName(heroName)}</h4>
     </div>
   );
 };
