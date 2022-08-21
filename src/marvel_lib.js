@@ -1,36 +1,28 @@
-const getHeroesData = async () => {
-  const heroesData = [];
-  const heroNames = ['Thor'];
+const getHeroData = async (heroName) => {
   const publicKey = '1bae7bc7f550d656f79fb52eccbeddd9';
-  const requestURL = getRequestURL(heroNames, publicKey);
+  const requestURL = getRequestURL(heroName, publicKey);
   console.log('REQUEST URL', requestURL);
 
   const requestResponse = await fetch(requestURL);
   const requestResponseJSON = await requestResponse.json();
+  const heroData = {};
 
   requestResponseJSON.data.results.forEach((result) => {
-    const heroData = {};
     heroData.id = result.id;
     heroData.name = result.name;
     heroData.description = result.description;
-    heroData.img_url = `${result.thumbnail.path}/standard_medium.${result.thumbnail.extension}`;
-
-    heroesData.push(heroData);
+    heroData.img_url = `${result.thumbnail.path}/standard_large.${result.thumbnail.extension}`;
   });
 
-  return heroesData;
+  return heroData;
 };
 
-const getRequestURL = (heroNames, publicKey) => {
+const getRequestURL = (heroName, publicKey) => {
   let requestURL = 'https://gateway.marvel.com:443/v1/public/characters?name=';
-
-  heroNames.forEach((heroName) => {
-    requestURL += heroName;
-  });
-
+  requestURL += heroName;
   requestURL += `&apikey=${publicKey}`;
 
   return requestURL;
 };
 
-export default getHeroesData;
+export {getHeroData};
