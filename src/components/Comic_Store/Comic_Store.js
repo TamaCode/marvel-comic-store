@@ -10,6 +10,12 @@ const Comic_Store = () => {
         <Hero_Card heroName='Spider-Man (Ultimate)' />
         <Hero_Card heroName='Deadpool' />
       </div>
+      <div className='store_row'>
+        <Hero_Card heroName='Wolverine' />
+        <Hero_Card heroName='Doctor Strange (Ultimate)' />
+        <Hero_Card heroName='Iron Man' />
+        <Hero_Card heroName='Captain America (Ultimate)' />
+      </div>
     </div>
   );
 };
