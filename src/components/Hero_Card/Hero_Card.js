@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import {getHeroData} from '../../marvel_lib.js';
 import './Hero_Card.css';
+import ItemCount from '../ItemCount.js/ItemCount.js';
 
-const Hero_Card = ({ heroName }) => {
+const Hero_Card = ({ heroName, stock }) => {
   const [heroImageURL, setHeroImageURL] = useState('');
   const cleanHeroName = heroName => heroName.split('(Ultimate)')[0];
 
@@ -21,6 +22,7 @@ const Hero_Card = ({ heroName }) => {
         <img src={heroImageURL} alt="Hero Image" />
       </div>
       <h4>{cleanHeroName(heroName)}</h4>
+      <ItemCount stock={stock}/>
     </div>
   );
 };
