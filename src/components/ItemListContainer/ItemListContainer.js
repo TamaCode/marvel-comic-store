@@ -1,16 +1,16 @@
 import marvel_logo from './marvel_logo.svg';
-import './Title.css';
+import './ItemListContainer.css';
 
-const Title = ({ title }) => {
+const ItemListContainer = ({ greeting }) => {
   return (
     <div className='title-box'>
       <div className='img-box'>
         <img src={marvel_logo} alt='Marvel Comics Logo' />
       </div>
       <h5>{`Let's save the world !`}</h5>
-      <h2>{ title }</h2>
+      <h2>{ greeting }</h2>
     </div>
   );
 };
 
-export default Title;
+export default ItemListContainer;

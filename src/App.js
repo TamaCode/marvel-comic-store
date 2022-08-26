@@ -1,7 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar.js';
-import Title from './components/Title/Title.js';
-import Comic_Store from './components/Comic_Store/Comic_Store.js';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 
 function App() {
   return (
@@ -10,8 +9,7 @@ function App() {
         <Navbar />
       </header>
       <body>
-        <Title title='Explore Our Comics Store !'></Title>
-        <Comic_Store />
+        <ItemListContainer greeting='Explore Our Comics Store !' />
       </body>
     </div>
   );
