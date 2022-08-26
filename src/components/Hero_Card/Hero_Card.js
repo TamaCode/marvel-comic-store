@@ -3,9 +3,15 @@ import {getHeroData} from '../../marvel_lib.js';
 import './Hero_Card.css';
 import ItemCount from '../ItemCount.js/ItemCount.js';
 
-const Hero_Card = ({ heroName, stock }) => {
+const Hero_Card = ({ heroName, stock, initial }) => {
   const [heroImageURL, setHeroImageURL] = useState('');
   const cleanHeroName = heroName => heroName.split('(Ultimate)')[0];
+
+  const onAdd = (itemCount) => {
+    if (itemCount != 0) {
+      alert(`Se han agregado ${itemCount} items al carrito.`);
+    }
+  };
 
   useEffect(() => {
     getHeroData(heroName).then((heroData) => {
@@ -22,7 +28,7 @@ const Hero_Card = ({ heroName, stock }) => {
         <img src={heroImageURL} alt="Hero Image" />
       </div>
       <h4>{cleanHeroName(heroName)}</h4>
-      <ItemCount stock={stock}/>
+      <ItemCount stock={stock} initial={initial} onAdd={onAdd} />
     </div>
   );
 };

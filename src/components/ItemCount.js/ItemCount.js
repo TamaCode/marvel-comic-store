@@ -2,8 +2,8 @@ import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import './ItemCount.css';
 
-const ItemCount = ({stock}) => {
-  const [itemCount, setItemCount] = useState(0);
+const ItemCount = ({stock, initial, onAdd }) => {
+  const [itemCount, setItemCount] = useState(initial);
   
   const addQuantity = () => {
     if (itemCount + 1 <= stock) {
@@ -17,12 +17,6 @@ const ItemCount = ({stock}) => {
     }
   };
 
-  const addToCart = () => {
-    if (itemCount != 0) {
-      alert(`Se han agregado ${itemCount} items al carrito.`);
-    }
-  };
-
   return (
    <div className="item-buttons-box">
     <div className="item-count-box">
@@ -30,7 +24,7 @@ const ItemCount = ({stock}) => {
       <p className="item-quantity">{itemCount}</p>
       <Button variant='danger' className="count-botton" onClick={addQuantity}>+</Button>
     </div>
-    <Button variant='danger' className="add-cart-botton" onClick={addToCart}>Add to Cart</Button>
+    <Button variant='danger' className="add-cart-botton" onClick={() => onAdd(itemCount)}>Add to Cart</Button>
    </div>
     
   );
