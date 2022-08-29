@@ -16,6 +16,10 @@
   margin-bottom: 1rem;
 }
 
+.price-text {
+  color: rgb(220, 53, 68);
+}
+
 img {
   border-radius: 50%;
 }

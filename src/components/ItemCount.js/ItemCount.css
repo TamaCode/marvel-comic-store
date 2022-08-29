@@ -9,7 +9,6 @@
   margin-top: 20px;
 }
 
-
 .item-count-box {
   display: flex;
   flex-direction: row;
@@ -26,6 +25,13 @@
   font-weight: bolder;
   padding: 0px 30px;
   margin-bottom: 0;
+}
+
+.available-stock-text {
+  border-top: 1px dashed red;
+  border-bottom: 1px dashed red;
+  padding: 10px 0px;
+  margin-top: 20px;
 }
 
 button:hover {

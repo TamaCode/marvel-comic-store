@@ -25,6 +25,7 @@ const ItemCount = ({stock, initial, onAdd }) => {
       <Button variant='danger' className="count-botton" onClick={addQuantity}>+</Button>
     </div>
     <Button variant='danger' className="add-cart-botton" onClick={() => onAdd(itemCount)}>Add to Cart</Button>
+    <p className="available-stock-text"><i>Available stock: {stock}</i></p>
    </div>
     
   );
