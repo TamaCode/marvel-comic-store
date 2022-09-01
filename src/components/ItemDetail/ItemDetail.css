@@ -1,0 +1,17 @@
+.item-detail-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin-top: 60px;
+  border: 3px solid red;
+  width: 30%;
+  background-color: rgba(255, 255, 0, 0.485);
+  padding: 30px;
+}
+
+.item-description-box{
+  width: 60%;
+  text-align:center;
+  margin-bottom: 20px;
+}
