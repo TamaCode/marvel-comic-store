@@ -13,21 +13,21 @@ const Footer = () => {
         <div className="footer-cols-box">
           <div className="footer-col">
             <h5>Social Media</h5>
-            <p><span className='social-media-icon'><FontAwesomeIcon icon={faFacebook} /></span>Facebook</p>
-            <p><span className='social-media-icon'><FontAwesomeIcon icon={faInstagram} /></span>Instagram</p>
-            <p><span className='social-media-icon'><FontAwesomeIcon icon={faTwitter} /></span>Twitter</p>
+            <a href=""><span className='social-media-icon'><FontAwesomeIcon icon={faFacebook} /></span>Facebook</a>
+            <a href=''><span className='social-media-icon'><FontAwesomeIcon icon={faInstagram} /></span>Instagram</a>
+            <a href=''><span className='social-media-icon'><FontAwesomeIcon icon={faTwitter} /></span>Twitter</a>
           </div>
           <div className="footer-col">
             <h5>Products</h5>
-            <p>Product 1</p>
-            <p>Product 2</p>
-            <p>Product 3</p>
+            <a href=''>Product 1</a>
+            <a href=''>Product 2</a>
+            <a href=''>Product 3</a>
           </div>
           <div className="footer-col">
             <h5>Legal Policy</h5>
-            <p>Legal Notices</p>
-            <p>Privacy Policy</p>
-            <p>Cookie Policy</p>
+            <a href=''>Legal Notices</a>
+            <a href=''>Privacy Policy</a>
+            <a href=''>Cookie Policy</a>
           </div>
         </div>
       </div>
