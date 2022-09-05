@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className='navbar-box'>
       <nav>
         <ul>
-          <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faHome} /></span>INIT</Button></a></li>
+          <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faHome} /></span>HOME</Button></a></li>
           <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faStore} /></span>STORE</Button></a></li>
           <CartWidget />
           <li><a href="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faMobileScreen} /></span>CONTACT</Button></a></li>
