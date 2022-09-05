@@ -1,10 +1,11 @@
+const publicKey = '1bae7bc7f550d656f79fb52eccbeddd9';
+
 const getItemData = async (heroName) => {
   try {
-    const publicKey = '1bae7bc7f550d656f79fb52eccbeddd9';
-    const requestURL = getRequestURL(heroName, publicKey);
-    console.log('REQUEST URL', requestURL);
+    const heroRequestURL = getHeroRequestURL(heroName, publicKey);
+    console.log('REQUEST URL', heroRequestURL);
 
-    const requestResponse = await fetch(requestURL);
+    const requestResponse = await fetch(heroRequestURL);
     const requestResponseJSON = await requestResponse.json();
     const heroData = {};
 
@@ -23,6 +24,37 @@ const getItemData = async (heroName) => {
   }
 };
 
+const getHeroComicsData = async (heroId, heroName) => {
+  let comicQuantity = 0;
+  const heroComics = [];
+  const comicQuantityLimit = 3;
+  const comicsRequestURL = getComicsRequestURL(heroId, publicKey);
+
+  const requestResponse = await fetch(comicsRequestURL);
+  const requestResponseJSON = await requestResponse.json();
+  const comicResults = requestResponseJSON.data.results;
+
+  for( let i = 0; i < comicResults.length; i++) {
+    if (comicQuantityLimit === comicQuantity) { break };
+
+    const comicResult = comicResults[i];
+    const heroComic = {};
+
+    heroComic.id = comicResult.id;
+    heroComic.title = comicResult.title;
+    heroComic.description = comicResult.description;
+    heroComic.price = comicResult.prices[0].price === 0 ? 5.99 : comicResult.prices[0].price ;
+    heroComic.img_url = `${comicResult.thumbnail.path}.${comicResult.thumbnail.extension}`;
+
+    if (heroComic.description && heroComic.title && heroComic.title.includes(heroName) && !heroComic.img_url.includes('image_not_available')) {
+      heroComics.push(heroComic);
+      comicQuantity++;
+    }
+  }
+
+  return heroComics;
+};
+
 const calculatePrice = (baseNumber1, baseNumber2) => {
   let price;
 
@@ -39,7 +71,7 @@ const calculatePrice = (baseNumber1, baseNumber2) => {
   return price.toFixed(2);
 };
 
-const getRequestURL = (heroName, publicKey) => {
+const getHeroRequestURL = (heroName, publicKey) => {
   let requestURL = 'https://gateway.marvel.com:443/v1/public/characters?name=';
   requestURL += heroName;
   requestURL += `&apikey=${publicKey}`;
@@ -47,4 +79,15 @@ const getRequestURL = (heroName, publicKey) => {
   return requestURL;
 };
 
-export {getItemData};
+const getComicsRequestURL = (heroId, publicKey) => {
+  let requestURL = 'https://gateway.marvel.com:443/v1/public/characters/';
+  requestURL += heroId;
+  requestURL += `/comics?apikey=${publicKey}`;
+
+  return requestURL;
+};
+
+export {
+  getItemData,
+  getHeroComicsData
+};

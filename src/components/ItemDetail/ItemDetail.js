@@ -1,16 +1,18 @@
 import './ItemDetail.css';
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ comic }) => {
   return (
     <div className="item-detail-box">
-      <div className="hero-img-box">
-        <img src={item.img_url} alt="" />
+      <div className="comic-img-box">
+        <img src={comic.img_url} alt="" />
       </div>
-      <h3>{item.name}</h3>
-      <div className='item-description-box'>
-        <p><b>{item.description}</b></p>
+      
+      <div className='item-data-box'>
+        <h3>{comic.title}</h3>
+        <p><b>{comic.description}</b></p>
+        <h5 className='price-text'><b><i>Price: US$ {comic.price}</i></b></h5>
       </div>
-      <h5 className='price-text'><b><i>Price: US$ {item.price}</i></b></h5>
+      
     </div>
   );
 };

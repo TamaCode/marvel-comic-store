@@ -1,5 +1,6 @@
 import Title from '../Title/Title.js';
 import ItemList from "../ItemList/ItemList.js";
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer.js';
 import './ItemListContainer.css';
 
 const ItemListContainer = ({ greeting }) => {
@@ -21,6 +22,7 @@ const ItemListContainer = ({ greeting }) => {
       <Title title={greeting}></Title>
       <ItemList items={itemList1} />
       <ItemList items={itemList2} />
+      <ItemDetailContainer />
     </div>
   );
 };
