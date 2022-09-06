@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         {/* Home ItemListContainer (Muestra categorias - Heroe)*/}
-        <Route path='/' element={<ItemListContainer greeting='Explore Our Comics Store !' />} />
+        <Route path='/' element={<ItemListContainer greeting='Choose your favourite Hero !' />} />
 
         {/* Categorias  ItemDetailContainer Muestra Comics por Heroe*/}
         <Route path='/category/:heroName' element={<ItemDetailContainer />} />

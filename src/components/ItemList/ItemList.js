@@ -10,7 +10,7 @@ const ItemList = ({ items }) => {
     const responseItemsData = [];
 
     // El setTimeout se usa simplemente para cumplir con la consigna de la entrega 5... el metodo getItemData ya hace uso del Web Service de MARVEL
-    setTimeout(() => {
+    // setTimeout(() => {
       items.forEach((item) => {
         getItemData(item.heroName).then((itemData) => {
           responseItemsData.push(itemData);
@@ -20,7 +20,7 @@ const ItemList = ({ items }) => {
           items.length === responseItemsData.length && setItemsData(sortResponseItemsDataArray(items, responseItemsData));
         });
       });
-    }, 2000);
+    // }, 2000);
   }, []);
 
   const sortResponseItemsDataArray = (itemsArray, responseItemsDataArray) => {

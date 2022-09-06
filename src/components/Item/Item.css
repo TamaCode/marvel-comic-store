@@ -5,9 +5,6 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border: 3px solid rgb(220, 53, 68);
-  background-color: rgba(241, 143, 151, 0.535);
-  border-radius: 10px;
 }
 
 .hero-img-box {
@@ -22,4 +19,15 @@
 
 img {
   border-radius: 50%;
+}
+
+.hero-card-link {
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s;
+}
+
+.hero-card-link:hover {
+  color: rgb(220, 53, 68);
+  transform: scale(1.2);
 }
