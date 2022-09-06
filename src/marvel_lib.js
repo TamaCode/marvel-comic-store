@@ -27,7 +27,7 @@ const getItemData = async (heroName) => {
 const getHeroComicsData = async (heroId, heroName) => {
   let comicQuantity = 0;
   const heroComics = [];
-  const comicQuantityLimit = 3;
+  const comicQuantityLimit = 4;
   const comicsRequestURL = getComicsRequestURL(heroId, publicKey);
 
   const requestResponse = await fetch(comicsRequestURL);
@@ -43,6 +43,7 @@ const getHeroComicsData = async (heroId, heroName) => {
     heroComic.id = comicResult.id;
     heroComic.title = comicResult.title;
     heroComic.description = comicResult.description;
+    heroComic.resumed_description = comicResult.description && `${comicResult.description.slice(0, 270)}...`;
     heroComic.price = comicResult.prices[0].price === 0 ? 5.99 : comicResult.prices[0].price ;
     heroComic.img_url = `${comicResult.thumbnail.path}.${comicResult.thumbnail.extension}`;
 
