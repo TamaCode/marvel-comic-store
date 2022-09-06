@@ -56,6 +56,25 @@ const getHeroComicsData = async (heroId, heroName) => {
   return heroComics;
 };
 
+const getComicData = async (comicId) => {
+  const comicData = {}
+  const comicsRequestURL = getComicRequestURL(comicId, publicKey);
+
+  const requestResponse = await fetch(comicsRequestURL);
+  const requestResponseJSON = await requestResponse.json();
+  const comicResult = requestResponseJSON.data.results[0];
+
+  comicData.id = comicResult.id;
+  comicData.title = comicResult.title;
+  comicData.description = comicResult.description;
+  comicData.resumed_description = comicResult.description && `${comicResult.description.slice(0, 270)}...`;
+  comicData.price = comicResult.prices[0].price === 0 ? 5.99 : comicResult.prices[0].price ;
+  comicData.img_url = `${comicResult.thumbnail.path}.${comicResult.thumbnail.extension}`;
+  comicData.heroName = comicResult.characters.items[0].name;
+
+  return comicData;
+};
+
 const calculatePrice = (baseNumber1, baseNumber2) => {
   let price;
 
@@ -88,7 +107,16 @@ const getComicsRequestURL = (heroId, publicKey) => {
   return requestURL;
 };
 
+const getComicRequestURL = (comicId, publicKey) => {
+  let requestURL = 'https://gateway.marvel.com:443/v1/public/comics/';
+  requestURL += comicId;
+  requestURL += `?apikey=${publicKey}`;
+
+  return requestURL;
+};
+
 export {
   getItemData,
-  getHeroComicsData
+  getHeroComicsData,
+  getComicData
 };
