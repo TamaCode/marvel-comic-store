@@ -7,8 +7,7 @@ import  { useParams } from 'react-router-dom';
 
 const Comic = () => {
   const [comic, setComic] = useState({});
-  const {comicId} = useParams();
-  const stock = 5;
+  const { comicId } = useParams();
   const initial = 1;
 
   const onAdd = (itemCount) => {
@@ -36,7 +35,7 @@ const Comic = () => {
         <h3 className='comic-title'>{comic.title}</h3>
         <p className='comic-description'><b>{comic.description}</b></p>
         <h5 className='price-text'><b><i>US$ {comic.price}</i></b></h5>
-        <ItemCount stock={stock} initial={initial} onAdd={onAdd} />
+        <ItemCount stock={comic.stock} initial={initial} onAdd={onAdd} />
       </div>
 
     </div>

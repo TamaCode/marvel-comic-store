@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
   const [ item, setItem ] = useState({});
   const [ comics, setComics ] = useState([]);
 
-  const cleanHeroName = heroName => heroName.split('(Ultimate)')[0];
+  const cleanHeroName = heroName => heroName.split(' (Ultimate)')[0];
 
   const getItem = (heroName) => {
     return new Promise((resolve, reject) => {
@@ -22,7 +22,8 @@ const ItemDetailContainer = () => {
 
   const getComics = async () => {
     const heroData = await getItemData(heroName);
-    const heroComics = await getHeroComicsData(heroData.id, heroData.name)
+    const heroComics = await getHeroComicsData(heroData.id, heroData.name);
+    console.log('heroComics', heroComics)
 
     return heroComics;
   };

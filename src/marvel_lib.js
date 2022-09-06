@@ -47,7 +47,14 @@ const getHeroComicsData = async (heroId, heroName) => {
     heroComic.price = comicResult.prices[0].price === 0 ? 5.99 : comicResult.prices[0].price ;
     heroComic.img_url = `${comicResult.thumbnail.path}.${comicResult.thumbnail.extension}`;
 
-    if (heroComic.description && heroComic.title && heroComic.title.includes(heroName) && !heroComic.img_url.includes('image_not_available')) {
+    if (((heroName === 'Hulk' || heroName === 'Iron Man') && heroComic.description && !heroComic.description.includes(cleanHeroName(heroName)))
+          || (heroName === 'Thor' && heroComic.title && !heroComic.title.includes(cleanHeroName(heroName)))
+          || (heroName === 'Doctor Strange (Ultimate)' && heroComic.description && !heroComic.description.includes(cleanHeroName(heroName)))
+          ) {
+        continue;
+    }
+
+    if (heroComic.description && heroComic.title && !heroComic.img_url.includes('image_not_available')) {
       heroComics.push(heroComic);
       comicQuantity++;
     }
@@ -71,6 +78,7 @@ const getComicData = async (comicId) => {
   comicData.price = comicResult.prices[0].price === 0 ? 5.99 : comicResult.prices[0].price ;
   comicData.img_url = `${comicResult.thumbnail.path}.${comicResult.thumbnail.extension}`;
   comicData.heroName = comicResult.characters.items[0].name;
+  comicData.stock = comicResult.creators.available;
 
   return comicData;
 };
@@ -91,9 +99,12 @@ const calculatePrice = (baseNumber1, baseNumber2) => {
   return price.toFixed(2);
 };
 
+const cleanHeroName = heroName => heroName.split(' (Ultimate)')[0];
+
 const getHeroRequestURL = (heroName, publicKey) => {
+  const formattedHeroName = heroName.replace(' ', '%20').replace(' ', '%20')
   let requestURL = 'https://gateway.marvel.com:443/v1/public/characters?name=';
-  requestURL += heroName;
+  requestURL += formattedHeroName;
   requestURL += `&apikey=${publicKey}`;
 
   return requestURL;

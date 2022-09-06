@@ -18,7 +18,7 @@ function App() {
         <Route path='/category/:heroName' element={<ItemDetailContainer />} />
 
         {/* Item Muestra Comic Seleccionado*/}
-        <Route path='/comic/:comicId' element={<Comic />} />
+        <Route path='/item/:comicId' element={<Comic />} />
       </Routes>
       <Footer />
     </BrowserRouter>

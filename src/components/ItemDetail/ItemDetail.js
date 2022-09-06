@@ -13,7 +13,7 @@ const ItemDetail = ({ comic }) => {
         <h3 className='item-title'>{comic.title}</h3>
         <p><b>{comic.resumed_description}</b></p>
         <h5 className='price-text'><b><i>US$ {comic.price}</i></b></h5>
-        <Link to={`/comic/${comic.id}`}><Button variant='danger' className="details-botton" >See Item Details</Button></Link>
+        <Link to={`/item/${comic.id}`}><Button variant='danger' className="details-botton" >See Item Details</Button></Link>
       </div>
       
     </div>

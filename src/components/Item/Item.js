@@ -13,7 +13,7 @@ const Item = ({ item, stock, initial }) => {
 
   return (
     <>
-      <Link className="hero-card-link" to={`/category/${cleanHeroName(item.name)}`}>
+      <Link className="hero-card-link" to={`/category/${item.name}`}>
         <div className='hero-card-box'>
           <div className='hero-img-box'>
             <img src={item.img_url} alt="Hero Image" />
