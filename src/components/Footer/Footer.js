@@ -2,13 +2,14 @@ import './Footer.css';
 import footerImg from "./marvel_footer_logo.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import  { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <div className="footer-box" >
       <div className='footer-links'>
         <div className="footer-img-box">
-          <img className='footer-img' src={footerImg} alt="footer pic" />
+        <Link to="/"><img className='footer-img' src={footerImg} alt="footer pic" /></Link>
         </div>
         <div className="footer-cols-box">
           <div className="footer-col">

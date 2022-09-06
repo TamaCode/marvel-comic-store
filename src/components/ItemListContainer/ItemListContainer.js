@@ -29,7 +29,7 @@ const ItemListContainer = ({ greeting }) => {
   ];
 
   return (
-    <div className='comic_store_box'>
+    <div className='comic_store_box' id='comic_store'>
       <Title title={greeting}></Title>
       <ItemList items={itemList1} />
       <ItemList items={itemList2} />
