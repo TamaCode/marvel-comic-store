@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import marvel_logo from '../Title/marvel_logo.svg';
 import './Cart.css';
+import { CartContext } from '../Context/CartProvider.js';
+import { Link } from "react-router-dom";
 
 const Cart = ({show}) => {
+  const cartContext = useContext(CartContext);
+
   return (
     <div className="modal-box">
       <div className="modal-window">
@@ -12,23 +16,42 @@ const Cart = ({show}) => {
           <h3 className="cart-title">YOUR CART</h3>
           <img src={marvel_logo} alt='Marvel Comics Logo' />
         </div>
-        <div><p>Mi Carrito1</p></div>
-        <div><p>Mi Carrito2</p></div>
-        <div><p>Mi Carrito3</p></div>
-        <div><p>Mi Carrito4</p></div>
-        <div><p>Mi Carrito5</p></div>
-        <div><p>Mi Carrito6</p></div>
-        <div><p>Mi Carrito7</p></div>
-        <div><p>Mi Carrito8</p></div>
-        <div><p>Mi Carrito9</p></div>
-        <div><p>Mi Carrito10</p></div>
-        <div><p>Mi Carrito11</p></div>
-        <div><p>Mi Carrito12</p></div>
-        <div><p>Mi Carrito13</p></div>
-        <div><p>Mi Carrito14</p></div>
-        <div><p>Mi Carrito15</p></div>
-        <div className="close-button-box">
-          <Button className="close-button" variant='danger' onClick={show}>Cerrar</Button>
+        <div className="cart-column-headers">
+          <h4 className="comic-column-header"><b>COMIC</b></h4>
+          <h4 className="title-column-header"><b>TITLE</b></h4>
+          <h4 className="quantity-column-header"><b>QUANTITY</b></h4>
+          <h4 className="price-column-header"><b>PRICE</b></h4>
+          <h4 className="substotal-column-header">SUBTOTAL</h4>
+        </div>
+        {
+          cartContext.cartItems.length === 0 ?
+          <p>Su carrito esta vacío</p> :
+          cartContext.cartItems.map((comic, index) =>
+              <div className="cart-item-box" key={index}>
+                <div className="cart-item-img-box">
+                  <img className="cart-item-img" src={comic.img_url} alt="" />
+                </div>
+                <p className="cart-item-title">{comic.title}</p>
+                <p className="cart-item-quantity">{comic.quantity}</p>
+                <p className="cart-item-price">{`USD ${comic.price}`}</p>
+                <p className="cart-item-subtotal"><b>{`USD ${(comic.quantity * comic.price).toFixed(2)}`}</b></p>
+              </div>
+          )
+        }
+        <div className="cart-buttons-box">
+          {
+            cartContext.cartItems.length === 0 ?
+              null :
+              <Link to={'/cart'}><Button className="close-button" variant='danger' onClick={show}>Terminar Compra</Button></Link>
+          }
+
+          {
+            cartContext.cartItems.length === 0 ?
+            null :
+            <Link to='#'><Button className="close-button" variant='danger' onClick={cartContext.clear}>Limpiar Carrito</Button></Link>
+          }
+
+          <Button className="close-button" variant='danger' onClick={show}>Close</Button>
         </div>
       </div>
     </div>

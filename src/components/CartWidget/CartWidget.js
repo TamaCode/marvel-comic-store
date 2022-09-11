@@ -9,7 +9,6 @@ const CartWidget = () => {
   const [showModal, setShowModal] = useState(false);
 
   const viewModal = () => {
-    console.log('open modal')
     setShowModal(!showModal);
   };
   return (

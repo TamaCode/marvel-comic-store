@@ -14,7 +14,7 @@ const Navbar = () => {
           <li><Link to="/"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faHome} /></span>HOME</Button></Link></li>
           <li><Link to="/#comic_store"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faStore} /></span>STORE</Button></Link></li>
           <CartWidget />
-          <li><Link to="/cart"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faTicket} /></span>FINISH-BUYING</Button></Link></li>
+          <li><Link to="#"><Button variant='danger'><span className='menu-icon'><FontAwesomeIcon icon={faMobileScreen} /></span>CONTACT</Button></Link></li>
         </ul>
       </nav>
     </div>

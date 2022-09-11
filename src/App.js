@@ -6,26 +6,29 @@ import Comic from './components/Comic/Comic.js';
 import Cart from './components/Cart/Cart.js';
 import Footer from './components/Footer/Footer.js';
 import  { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './components/Context/CartProvider.js';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        {/* Home ItemListContainer (Muestra categorias - Heroe)*/}
-        <Route path='/' element={<ItemListContainer greeting='Choose your favourite Hero !' />} />
+    <CartProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          {/* Home ItemListContainer (Muestra categorias - Heroe)*/}
+          <Route path='/' element={<ItemListContainer greeting='Choose your favourite Hero !' />} />
 
-        {/* Categorias  ItemDetailContainer Muestra Comics por Heroe*/}
-        <Route path='/category/:heroName' element={<ItemDetailContainer />} />
+          {/* Categorias  ItemDetailContainer Muestra Comics por Heroe*/}
+          <Route path='/category/:heroName' element={<ItemDetailContainer />} />
 
-        {/* Item Muestra Comic Seleccionado*/}
-        <Route path='/item/:comicId' element={<Comic />} />
+          {/* Item Muestra Comic Seleccionado*/}
+          <Route path='/item/:comicId' element={<Comic />} />
 
-        {/* Cart */}
-        <Route path='/cart' element={<Cart />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+          {/* Cart */}
+          <Route path='/cart' element={<></>}/>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
