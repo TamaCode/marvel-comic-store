@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Item from "../Item/Item.js";
-import { getItemData } from '../../marvel_lib.js';
+import { getItemData } from '../../libs/marvel_lib.js';
 import './ItemList.css';
 
 const ItemList = ({ items }) => {

@@ -2,7 +2,7 @@ import './Comic.css';
 import Title from '../Title/Title.js';
 import ItemCount from '../ItemCount.js/ItemCount.js';
 import { useState, useEffect } from 'react';
-import { getComicData } from '../../marvel_lib.js';
+import { getComicData } from '../../libs/marvel_lib.js';
 import  { useParams } from 'react-router-dom';
 
 const Comic = () => {

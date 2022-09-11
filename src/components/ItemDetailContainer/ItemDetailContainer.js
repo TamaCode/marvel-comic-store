@@ -2,7 +2,7 @@ import ItemDetail from "../ItemDetail/ItemDetail.js";
 import Title from "../Title/Title.js";
 import './ItemDetailContainer.css';
 import { useState, useEffect } from 'react';
-import { getItemData, getHeroComicsData } from '../../marvel_lib.js';
+import { getItemData, getHeroComicsData } from '../../libs/marvel_lib.js';
 import  { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
