@@ -16,15 +16,13 @@ const CartProvider = ({ children }) => {
     } else {
       setCartItems([...cartItems, item]);
     }
-
-    console.log('item agregado al carrito: ', cartItems);
   };
 
   const removeItem = (comic) => {
     const isInCartFlag = isInCart(comic);
 
     if (isInCartFlag !== false) {
-      const newItemCartArray = cartItems.filter(item => item.id === comic.id);
+      const newItemCartArray = cartItems.filter(item => item.id !== comic.id);
       setCartItems([...newItemCartArray]);
     }
   };
@@ -35,12 +33,28 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  const getTotal = () => {
+    let total = 0;
+
+    cartItems.forEach(item => total += (item.quantity * item.price));
+
+    return parseFloat(total.toFixed(2));
+  };
+
+  const getTotalItems = () => {
+    let totalItems = 0;
+
+    cartItems.forEach(item => totalItems += item.quantity);
+
+    return totalItems;
+  };
+
   const isInCart = (comic) => {
     const isInCartFlag = cartItems.findIndex(item => item.id === comic.id);
     return isInCartFlag === -1 ? false : isInCartFlag;
   };
 
-  return <CartContext.Provider value={{ addItem, removeItem, clear, isInCart, cartItems }}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{ addItem, removeItem, clear, isInCart, getTotal, getTotalItems, cartItems }}>{children}</CartContext.Provider>;
 };
 
 export {
