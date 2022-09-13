@@ -5,9 +5,22 @@
   align-items: center;
 }
 
+.count-botton {
+  transition: all 0.2s !important;
+}
+
+.count-botton:hover {
+  transform: scale(1.2);
+}
+
 .add-cart-botton {
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: all 0.2s !important;
+}
+
+.add-cart-botton:hover {
+  transform: scale(1.2);
 }
 
 .item-count-box {

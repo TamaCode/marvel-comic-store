@@ -43,7 +43,7 @@ const Comic = () => {
         <h5 className='price-text'><b><i>US$ {comic.price}</i></b></h5>
         <ItemCount stock={comic.stock} initial={initial} onAdd={onAdd} />
         { countItem ? <p><b>It has been added {countItem} item(s) to the Cart</b></p> : <p></p> }
-        { countItem ? <Link to='/cart'><Button variant='danger' className="details-botton">Terminar Compra</Button></Link> : null }
+        { countItem ? <Link to='/cart'><Button variant='danger' className="finish-buy-botton">Terminar Compra</Button></Link> : null }
       </div>
 
     </div>
