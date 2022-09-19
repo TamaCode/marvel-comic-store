@@ -11,9 +11,8 @@ import { Link } from 'react-router-dom';
 const Comic = () => {
   const [comic, setComic] = useState({});
   const [countItem, setCountItem] = useState(0);
-  const { comicId } = useParams();
+  const { comicId, docId } = useParams();
   const cartContext = useContext(CartContext);
-  const initial = 1;
 
   const onAdd = (itemCount) => {
     if (itemCount != 0) {
@@ -41,7 +40,7 @@ const Comic = () => {
         <h3 className='comic-title'>{comic.title}</h3>
         <p className='comic-description'><b>{comic.description}</b></p>
         <h5 className='price-text'><b><i>US$ {comic.price}</i></b></h5>
-        <ItemCount stock={comic.stock} initial={initial} onAdd={onAdd} />
+        <ItemCount stock={comic.stock} docId={docId} onAdd={onAdd} />
         { countItem ? <p><b>It has been added {countItem} item(s) to the Cart</b></p> : <p></p> }
         { countItem ? <Link to='/cart'><Button variant='danger' className="finish-buy-botton">Terminar Compra</Button></Link> : null }
       </div>

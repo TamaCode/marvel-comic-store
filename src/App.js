@@ -18,10 +18,10 @@ function App() {
           <Route path='/' element={<ItemListContainer greeting='Choose your favourite Hero !' />} />
 
           {/* Categorias  ItemDetailContainer Muestra Comics por Heroe*/}
-          <Route path='/category/:heroName' element={<ItemDetailContainer />} />
+          <Route path='/category/:heroName/:docId' element={<ItemDetailContainer />} />
 
           {/* Item Muestra Comic Seleccionado*/}
-          <Route path='/item/:comicId' element={<Comic />} />
+          <Route path='/item/:comicId/:docId' element={<Comic />} />
 
           {/* Cart */}
           <Route path='/cart' element={<></>}/>
