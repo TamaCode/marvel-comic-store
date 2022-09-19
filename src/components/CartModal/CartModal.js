@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
 import marvel_logo from '../Title/marvel_logo.svg';
-import './Cart.css';
+import './CartModal.css';
 import { CartContext } from '../Context/CartProvider.js';
 import { Link } from "react-router-dom";
 
-const Cart = ({show}) => {
+const CartModal = ({show}) => {
   const cartContext = useContext(CartContext);
 
   const onWheelEvent = (evt) => {
@@ -74,4 +74,4 @@ const Cart = ({show}) => {
 };
 
 
-export default Cart;
+export default CartModal;
