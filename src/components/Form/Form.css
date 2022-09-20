@@ -1,0 +1,39 @@
+.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 5%;
+  padding: 30px;
+  margin-top: 50px;
+  width: 50%;
+}
+
+.input_field {
+  margin-bottom: 20px;
+}
+
+.notice_text{
+  text-align: center;
+}
+
+.notice_icon {
+  color: RGB(230, 57, 45);
+  font-size: 50px;
+}
+
+.submit_button {
+  transition: all 0.2s !important;
+}
+
+.submit_button:hover {
+  transform: scale(1.2);
+}
