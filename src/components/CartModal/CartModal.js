@@ -52,13 +52,13 @@ const CartModal = ({show}) => {
             {
               cartContext.cartItems.length === 0 ?
                 null :
-                <Link to={'/cart'}><Button className="close-button" variant='danger' onClick={show}>Terminar Compra</Button></Link>
+                <Link to={'/cart'}><Button className="close-button" variant='danger' onClick={show}>Finish Buying</Button></Link>
             }
 
             {
               cartContext.cartItems.length === 0 ?
                 null :
-                <Link to='#'><Button className="close-button" variant='danger' onClick={cartContext.clear}>Limpiar Carrito</Button></Link>
+                <Link to='#'><Button className="close-button" variant='danger' onClick={cartContext.clear}>Clean Cart</Button></Link>
             }
 
             <Button className="close-button" variant='danger' onClick={show}>Close</Button>
