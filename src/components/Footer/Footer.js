@@ -14,21 +14,21 @@ const Footer = () => {
         <div className="footer-cols-box">
           <div className="footer-col">
             <h5>Social Media</h5>
-            <a href=""><span className='social-media-icon'><FontAwesomeIcon icon={faFacebook} /></span>Facebook</a>
-            <a href=''><span className='social-media-icon'><FontAwesomeIcon icon={faInstagram} /></span>Instagram</a>
-            <a href=''><span className='social-media-icon'><FontAwesomeIcon icon={faTwitter} /></span>Twitter</a>
+            <Link to="/"><span className='social-media-icon'><FontAwesomeIcon icon={faFacebook} /></span>Facebook</Link>
+            <Link to="/"><span className='social-media-icon'><FontAwesomeIcon icon={faInstagram} /></span>Instagram</Link>
+            <Link to="/"><span className='social-media-icon'><FontAwesomeIcon icon={faTwitter} /></span>Twitter</Link>
           </div>
           <div className="footer-col">
-            <h5>Products</h5>
-            <a href=''>Product 1</a>
-            <a href=''>Product 2</a>
-            <a href=''>Product 3</a>
+            <h5>Categories</h5>
+            <Link to="/">Iron Man</Link>
+            <Link to="/">Wolverine</Link>
+            <Link to="/">Deadpool</Link>
           </div>
           <div className="footer-col">
             <h5>Legal Policy</h5>
-            <a href=''>Legal Notices</a>
-            <a href=''>Privacy Policy</a>
-            <a href=''>Cookie Policy</a>
+            <Link to="/">Legal Notices</Link>
+            <Link to="/">Privacy Policy</Link>
+            <Link to="/">Cookie Policy</Link>
           </div>
         </div>
       </div>

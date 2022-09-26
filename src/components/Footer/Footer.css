@@ -49,7 +49,7 @@
   padding: 10px 0px;
 }
 
-.footer-col a:hover, .footer-col a:focus, .footer-col a:active {
+.footer-col a:hover {
   color: RGB(255, 251, 0);
 }
 
