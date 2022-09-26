@@ -35,7 +35,6 @@ const Form = () => {
 
       addDoc(orderCollection, order)
         .then((response) => {
-          console.log('order', order)
           setNotice(`Thank you for buying!`);
           setOrderId(response.id)
           setOrderSent(true);

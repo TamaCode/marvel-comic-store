@@ -28,7 +28,6 @@ const ItemCount = ({stock, docId, onAdd }) => {
 
     getComicDocument()
       .then(document => {
-        console.log('document.data().initial', document.data().initial);
         setItemCount(document.data().initial)
       })
       .catch(error => console.log('Error al conectarse con firebase: ', error));

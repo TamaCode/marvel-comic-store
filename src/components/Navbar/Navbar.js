@@ -1,9 +1,8 @@
-// import marvel_comics_logo from './marvel_logo.jpeg';
 import './Navbar.css';
 import Button from 'react-bootstrap/Button';
 import CartWidget from '../CartWidget/CartWidget.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faStore, faMobileScreen, faTicket, faMoneyBillTransfer } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faStore, faMoneyBillTransfer } from '@fortawesome/free-solid-svg-icons';
 import  { Link } from 'react-router-dom';
 
 const Navbar = () => {

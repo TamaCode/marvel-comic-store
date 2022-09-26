@@ -11,7 +11,6 @@ const CartModal = ({show}) => {
   const cartContext = useContext(CartContext);
 
   const onWheelEvent = (evt) => {
-    console.log(evt?.stopPropagation(true))
     evt.stopPropagation();
   };
 

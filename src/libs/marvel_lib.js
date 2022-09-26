@@ -3,8 +3,6 @@ const publicKey = '1bae7bc7f550d656f79fb52eccbeddd9';
 const getItemData = async (heroName) => {
   try {
     const heroRequestURL = getHeroRequestURL(heroName, publicKey);
-    console.log('REQUEST URL', heroRequestURL);
-
     const requestResponse = await fetch(heroRequestURL);
     const requestResponseJSON = await requestResponse.json();
     const heroData = {};
