@@ -15,17 +15,26 @@ const Comic = () => {
   const cartContext = useContext(CartContext);
 
   const onAdd = (itemCount) => {
-    if (itemCount != 0) {
+    if (itemCount != 0 && comic.stock >= itemCount) {
       cartContext.addItem(comic, itemCount);
+      setComic({ ...comic, stock: parseInt(comic.stock) - itemCount });
       setCountItem(itemCount);
+    } else if (itemCount != 0 && comic.stock < itemCount) {
+      alert('Sorry, there is not enough stock of this comic.');
     }
   };
 
   useEffect(() => {
     getComicData(comicId).then((comicData) => {
-      setComic(comicData);
+      const comicQuantityInCart = getComicQuantityInCart(comicData);
+      setComic({ ...comicData, stock: parseInt(comicData.stock) - comicQuantityInCart });
     });
   }, []);
+
+  const getComicQuantityInCart = (comicData) => {
+    const comicInCart = cartContext.cartItems.find(cartItem => cartItem.id === comicData.id);
+    return comicInCart ? parseInt(comicInCart.quantity) : 0;
+  };
 
   return (
     <div className='comic-box-container'>
