@@ -38,6 +38,7 @@ const Form = () => {
           setNotice(`Thank you for buying!`);
           setOrderId(response.id)
           setOrderSent(true);
+          cartContext.clear(true);
         })
         .catch((error) => {
           console.log('Error al guardar la orden: ', error)

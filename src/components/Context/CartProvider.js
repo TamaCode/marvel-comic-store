@@ -27,8 +27,8 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  const clear = () => {
-    if (window.confirm('¿Está seguro que desea vaciar el Carrito?') === true) {
+  const clear = (clearFlag) => {
+    if (clearFlag || window.confirm('¿Está seguro que desea vaciar el Carrito?') === true) {
       setCartItems([]);
     }
   };

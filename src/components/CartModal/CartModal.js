@@ -57,7 +57,7 @@ const CartModal = ({show}) => {
             {
               cartContext.cartItems.length === 0 ?
                 null :
-                <Link to='#'><Button className="close-button" variant='danger' onClick={cartContext.clear}>Clean Cart</Button></Link>
+                <Link to='#'><Button className="close-button" variant='danger' onClick={() => {cartContext.clear(false)}}>Clean Cart</Button></Link>
             }
 
             <Button className="close-button" variant='danger' onClick={show}>Close</Button>

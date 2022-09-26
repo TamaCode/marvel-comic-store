@@ -28,7 +28,7 @@ const Comic = () => {
     getComicData(comicId).then((comicData) => {
       const comicQuantityInCart = getComicQuantityInCart(comicData);
       setComic({ ...comicData, stock: parseInt(comicData.stock) - comicQuantityInCart });
-    });
+    }).catch(error => console.log('Error al obtener la Comic Data', error));
   }, []);
 
   const getComicQuantityInCart = (comicData) => {
